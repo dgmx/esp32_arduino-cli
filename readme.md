@@ -80,3 +80,13 @@ Editamos el archivo para configurar el sketch que queremos instalar en nuestra p
    Este sketch utiliza la placa de desarrollo como Servidor HTTP recibiendo peticiones para
    encender y apagar el led interno de la placa
 ```
+Copiamos el archivo a la carpeta del sketch y eliminamos el anterior
+```
+rm Sketch01.inp
+```
+Renombramos el archivo copiado al nombre del sketch:
+```
+mv HttpServidorBlink.ino Sket01.ino
+```
+
+
