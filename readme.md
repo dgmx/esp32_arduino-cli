@@ -8,6 +8,9 @@ Empezamos con la instalación de Arduino-Cli:
 $ curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 # comprobamos la instalación
 $ arduino-cli version
+
+arduino-cli  Version: 0.35.3 Commit: 95cfd654 Date: 2024-02-19T13:24:24Z
+
 ```
 Es probable que debamos añadir la carpeta de instalación del CLI al path.
 
@@ -180,10 +183,10 @@ Hard resetting via RTS pin...
 New upload port: /dev/ttyUSB0 (serial)
 
 ```
-Si todo ha ido correctamente, deberías poder acceder a tu placa ESP32 desde una navegador unando la dirección IP establecida en el sketch.
-Puedes comprobar tambien su funcionamiento desde el terminal con el siguiente comando:
+Si todo ha ido correctamente, deberías poder acceder a tu placa ESP32 desde una navegador unando la dirección IP establecida en el sketch. En mi casao he usado la 192.168.1.235. Puedes comprobar tambien su funcionamiento desde el terminal con el siguiente comando :
 ```
 $ cul 192.168.1.253
+
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
