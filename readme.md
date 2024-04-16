@@ -5,9 +5,9 @@ Empezamos con la instalación de Arduino-Cli:
 
 ```
 # instalamos desde github
-curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+$ curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 # comprobamos la instalación
-arduino-cli version
+$ arduino-cli version
 ```
 Es probable que debamos añadir la carpeta de instalación del CLI al path.
 
@@ -18,16 +18,13 @@ export PATH=$PATH:/home/usuario/bin/arduino-cli
 ```
 Es muy probable que tengamos que instalar la libreria PySerial en nuestro sistema:
 ```
-python3 -m pip install PySerial
+$ python3 -m pip install PySerial
 ```
 El siguiente paso será crear el archivo de configuración de Arduino-Cli
 ```
-# setup configuration file
-arduino-cli config init
+$ arduino-cli config init
 
-# Config file written: /home/username/.arduino15/arduino-cli.yaml
-# Documentation for file: https://arduino.github.io/arduino-cli/0.19/configuration/
-
+Config file written: /home/username/.arduino15/arduino-cli.yaml
 ```
 Una vez creado el archivo de configuración, añadimos al archivo yaml las placas ESP32:
 ```
@@ -39,21 +36,22 @@ board_manager:
 Actualizamos el indice de placas e instalamos las ESP32
 
 ```
-arduino-cli core update-index
-arduino-cli board listall
-arduino-cli core install esp32:esp32
+$ arduino-cli core update-index
+$ arduino-cli board listall
+$ arduino-cli core install esp32:esp32
+
 # Platform esp32:esp32@2.0.2 already installed
 ```
 Comprobamos que la placa está instalada:
 ```
-arduino-cli core list
+$ arduino-cli core list
 
 ID          Instalado Última Nombre
 esp32:esp32 2.0.11    2.0.11 esp32
 ```
 Podemos comprobar los puertos serial en uso con el comando:
 ```
-arduino-cli board list
+$ arduino-cli board list
 
 Puerto       Protocolo Tipo              Nombre de la placa FQBN Núcleo
 /dev/ttyS0   serial    Serial Port       Unknown
@@ -61,14 +59,15 @@ Puerto       Protocolo Tipo              Nombre de la placa FQBN Núcleo
 ```
 El siguiente paso será crear el sketch de Arduino, para ello usaremos el siguiente comando:
 ```
-arduino-cli sketch new Sketch01
+$arduino-cli sketch new Sketch01
+
 Sketch created in: /home/diego/Arduino/Sketch01
 
 ```
 Accedemos a la carpeta y comprobamos que el archivo Sketch01.ino ha sido generado:
 ```
-cd Sketch01
-ls -l 
+$ cd Sketch01
+$ ls -l 
 
 -rw-r--r-- 1 diego diego 35 abr 16 10:11 Sketch01.ino
 ```
@@ -84,18 +83,18 @@ Este sketch va a probar la capacidad de la ESP32 de conectarese a una wifi e ini
 
 Copiamos el archivo a la carpeta del sketch y eliminamos el anterior
 ```
-rm Sketch01.inp
+$ rm Sketch01.inp
 ```
 Renombramos el archivo copiado al nombre del sketch:
 ```
-mv HttpServidorBlink.ino Sket01.ino
+$ mv HttpServidorBlink.ino Sket01.ino
 ```
 En el archivo solo debemos modificar el SSID de nuestra wifi y su contraseña, y la dirección IP que le queramos configurar a la placa.
 
 Una vez realizado las modificaciones necesarias, vamos a compilar y a subir el archivo a la placa:
 Para ello volvemos una carpeta hacia atras y ejecutamos:
 ```
-arduino-cli compile --fqbn esp32:esp32:nodemcu-32s Sketch01
+$ arduino-cli compile --fqbn esp32:esp32:nodemcu-32s Sketch01
 
 El Sketch usa 748909 bytes (57%) del espacio de almacenamiento de programa. El máximo es 1310720 bytes.
 Las variables Globales usan 43968 bytes (13%) de la memoria dinámica, dejando 283712 bytes para las variables locales. El máximo es 327680 bytes.
@@ -110,7 +109,7 @@ esp32:esp32   2.0.11  /home/diego/.arduino15/packages/esp32/hardware/esp32/2.0.1
 ```
 El paso final es subir el archivo compilado a la placa:
 ```
-arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:nodemcu-32s Sketch01
+$ arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:nodemcu-32s Sketch01
 
 esptool.py v4.5.1
 Serial port /dev/ttyUSB0
