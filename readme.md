@@ -6,6 +6,7 @@ Empezamos con la instalación de Arduino-Cli:
 ```
 # instalamos desde github
 $ curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+
 # comprobamos la instalación
 $ arduino-cli version
 
@@ -15,11 +16,11 @@ arduino-cli  Version: 0.35.3 Commit: 95cfd654 Date: 2024-02-19T13:24:24Z
 Es probable que debamos añadir la carpeta de instalación del CLI al path.
 
 Para añadir una carpeta al PATH de Linux se usa el comando export.
-Editamos el archivo de configuración de bash (.bashrc) o zsh (.zshrc) y añadimos la siguiente linea al final:
+Editamos el archivo de configuración de bash (.bashrc) o zsh (.zshrc) y añadimos la siguiente línea al final:
 ```
 export PATH=$PATH:/home/usuario/bin/arduino-cli
 ```
-Es muy probable que tengamos que instalar la libreria PySerial en nuestro sistema:
+Es muy probable que tengamos que instalar la librería PySerial en nuestro sistema:
 ```
 $ python3 -m pip install PySerial
 ```
@@ -36,7 +37,7 @@ board_manager:
     - https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 ```
-Actualizamos el indice de placas e instalamos las ESP32
+Actualizamos el índice de placas e instalamos las ESP32
 
 ```
 $ arduino-cli core update-index
@@ -74,7 +75,7 @@ $ ls -l
 
 -rw-r--r-- 1 diego diego 35 abr 16 10:11 Sketch01.ino
 ```
-Editamos el archivo para configurar el sketch que queremos instalar en nuestra placa, en este ejemplo vamos a usar el codigo de ejemplo de HttpServidorBlink
+Editamos el archivo para configurar el sketch que queremos instalar en nuestra placa, en este ejemplo vamos a usar el código de ejemplo de HttpServidorBlink
 ```   
    HttpServidorBlink.ino
    Author: UPM
@@ -82,7 +83,7 @@ Editamos el archivo para configurar el sketch que queremos instalar en nuestra p
    Este sketch utiliza la placa de desarrollo como Servidor HTTP recibiendo peticiones para
    encender y apagar el led interno de la placa
 ```
-Este sketch va a probar la capacidad de la ESP32 de conectarese a una wifi e iniciar un servidor Web donde podemos modificar los leds de la placa
+Este sketch va a probar la capacidad de la ESP32 de conectarse a una wifi e iniciar un servidor Web donde podemos modificar los leds de la placa
 
 Copiamos el archivo a la carpeta del sketch y eliminamos el anterior
 ```
