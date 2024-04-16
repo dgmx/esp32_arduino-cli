@@ -16,6 +16,10 @@ Editamos el archivo de configuración de bash (.bashrc) o zsh (.zshrc) y añadim
 ```
 export PATH=$PATH:/home/usuario/bin/arduino-cli
 ```
+Es muy probable que tengamos que instalar la libreria PySerial en nuestro sistema:
+```
+python3 -m pip install PySerial
+```
 El siguiente paso será crear el archivo de configuración de Arduino-Cli
 ```
 # setup configuration file
@@ -54,3 +58,25 @@ arduino-cli board list
 Puerto       Protocolo Tipo              Nombre de la placa FQBN Núcleo
 /dev/ttyS0   serial    Serial Port       Unknown
 /dev/ttyUSB0 serial    Serial Port (USB) Unknown
+```
+El siguiente paso será crear el sketch de Arduino, para ello usaremos el siguiente comando:
+```
+arduino-cli sketch new Sketch01
+Sketch created in: /home/diego/Arduino/Sketch01
+
+```
+Accedemos a la carpeta y comprobamos que el archivo Sketch01.ino ha sido generado:
+```
+cd Sketch01
+ls -l 
+
+-rw-r--r-- 1 diego diego 35 abr 16 10:11 Sketch01.ino
+```
+Editamos el archivo para configurar el sketch que queremos instalar en nuestra placa, en este ejemplo vamos a usar el codigo de ejemplo de HttpServidorBlink
+```   
+   HttpServidorBlink.ino
+   Author: UPM
+   Date: 2021
+   Este sketch utiliza la placa de desarrollo como Servidor HTTP recibiendo peticiones para
+   encender y apagar el led interno de la placa
+```
