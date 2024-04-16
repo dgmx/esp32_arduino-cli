@@ -11,9 +11,10 @@ arduino-cli version
 ```
 Es probable que debamos añadir la carpeta de instalación del CLI al path.
 
-Para añadir una carpeta al PATH de Linux se usa el comando export:
+Para añadir una carpeta al PATH de Linux se usa el comando export.
+Editamos el archivo de configuración de bash (.bashrc) o zsh (.zshrc) y añadimos la siguiente linea al final:
 ```
-export PATH=$PATH:/home/usuario/ruta_a_la_carpeta_que_quiero_añadir
+export PATH=$PATH:/home/usuario/bin/arduino-cli
 ```
 El siguiente paso será crear el archivo de configuración de Arduino-Cli
 ```
@@ -31,3 +32,25 @@ board_manager:
     - https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 ```
+Actualizamos el indice de placas e instalamos las ESP32
+
+```
+arduino-cli core update-index
+arduino-cli board listall
+arduino-cli core install esp32:esp32
+# Platform esp32:esp32@2.0.2 already installed
+```
+Comprobamos que la placa está instalada:
+```
+arduino-cli core list
+
+ID          Instalado Última Nombre
+esp32:esp32 2.0.11    2.0.11 esp32
+```
+Podemos comprobar los puertos serial en uso con el comando:
+```
+arduino-cli board list
+
+Puerto       Protocolo Tipo              Nombre de la placa FQBN Núcleo
+/dev/ttyS0   serial    Serial Port       Unknown
+/dev/ttyUSB0 serial    Serial Port (USB) Unknown
