@@ -178,3 +178,20 @@ Hash of data verified.
 Leaving...
 Hard resetting via RTS pin...
 New upload port: /dev/ttyUSB0 (serial)
+
+```
+Si todo ha ido correctamente, deberías poder acceder a tu placa ESP32 desde una navegador unando la dirección IP establecida en el sketch.
+Puedes comprobar tambien su funcionamiento desde el terminal con el siguiente comando:
+```
+$ cul 192.168.1.253
+<!DOCTYPE HTML>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>UTILIZACIÓN DE PLACA DE DESARROLLO COMO SERVIDOR HTTP</title>
+</head>
+<body><br><br>Gestión del Led Interno de la placa con las siguients páginas<br><br><br>
+*<a href=/encender>Encender led interno</a><br>
+* <a href=/apagar>Apagar led interno</a><br>*
+<p>Diego J. Gonzaĺez. <i>DGMXio Systems</i></p>
+</body>
+</html>
