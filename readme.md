@@ -44,7 +44,7 @@ $ arduino-cli core update-index
 $ arduino-cli board listall
 $ arduino-cli core install esp32:esp32
 
-# Platform esp32:esp32@2.0.2 already installed
+Platform esp32:esp32@2.0.2 already installed
 ```
 Comprobamos que la placa está instalada:
 ```
@@ -186,7 +186,7 @@ New upload port: /dev/ttyUSB0 (serial)
 ```
 Si todo ha ido correctamente, deberías poder acceder a tu placa ESP32 desde una navegador unando la dirección IP establecida en el sketch. En mi casao he usado la 192.168.1.235. Puedes comprobar tambien su funcionamiento desde el terminal con el siguiente comando :
 ```
-$ cul 192.168.1.253
+$ cul 192.168.1.235
 
 <!DOCTYPE HTML>
 <html>
